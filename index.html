@@ -3,147 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SRC knowledge sharing</title>
+    <title>20s Timer with Ads</title>
     <style>
-        /* Basic CSS for styling */
         body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
             font-family: Arial, sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-            background-size: 100%;
-            background-image: url(https://img.freepik.com/premium-photo/tropical-beach-with-sea-star-sand-summer-holiday-background_938508-3182.jpg?size=626&ext=jpg);   } 
-        
-            header {
-            background-color: #415deb; /* Adjusted to a red shade */
-            color: #fff;
-            padding: 10px 0;
-            text-align: center;
-        }
-        nav {
-            background-color: #04010d;
-            padding: 10px 0;
-            text-align: center;
-        }
-        nav ul {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-        }
-        nav ul li {
-            display: inline;
-            margin-right: 10px;
-        }
-        nav ul li a {
-            color: #fff;
-            text-decoration: none;
-            padding: 5px 10px;
-        }
-        nav ul li a:hover {
-            background-color: #999;
-        }
-        .content {
-            padding: 20px;
-            margin: 20px;
-            
-        }
-        .content h2 {
-            color: #333;
-        }
-        .content p {
-            margin-bottom: 20px;
-            overflow: hidden; /* Hide overflow text initially */
-            max-height: 100px; /* Set max height for hidden content */
-            transition: max-height 0.3s ease-out; /* Smooth transition */
-        }
-        .content img {
-            max-width: 100%;
-            height: auto;
-            display: block;
-            margin-bottom: 20px;
-        }
-        .content .read-more-btn {
-            display: block;
-            margin-top: 10px;
-            color: #333;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        .content .read-more-btn:hover {
-            text-decoration: underline;
-        }
-        .sidebar {
-            float: right;
-            width: 30%;
             background-color: #f0f0f0;
-            padding: 10px;
-            margin-left: 20px;
-            border: 1px solid #ccc;
         }
-        footer {
-            background-color: #251fea; /* Adjusted to a red shade */
-            color: #fff;
-            text-align: center;
-            padding: 10px 0;
-            clear: both;
+        .timer {
+            font-size: 48px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .ad {
+            margin: 20px 0;
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>SRC Knowledge Sharing</h1>
-    </header>
-    <nav>
-        <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Blog</a></li>
-            <li><a href="#">Contact</a></li>
-        </ul>
-    </nav>
-    <div class="content">
-      <h2>    Welcome To      SRC Knowledge Sharing(YFSSU)</h2>
-        <p><h3>သုတ ရသစုံမျှဝေမှာ SRC Knowledge Sharingပါ</h3></p>
-        
-        <div class="article">
-            <h3 align="center">Article Title 1</h3>
-            <p align="center">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac urna auctor, tincidunt purus nec, scelerisque lacus. Vivamus id orci sed felis suscipit suscipit. Curabitur non ligula felis. In a fermentum justo, eget lacinia justo.</p>
-            <p align="center" class="more-content">Vestibulum dapibus turpis et libero consequat, sit amet aliquam ligula pharetra. Mauris congue efficitur dolor, non tincidunt felis scelerisque vel. Donec fringilla, quam vel posuere tincidunt, libero odio convallis sapien, ac bibendum lacus augue ac ex.</p>
-            <button class="read-more-btn" onclick="toggleVisibility(this)">See More</button>
-            <img src="article1.jpg" alt="Article 1">
-        </div>
-        
-        <div class="article">
-            
-            <h3 align="center">Article Title 2</h3>
-            <p align="center">Phasellus nec nunc sed augue bibendum bibendum. Morbi tincidunt, lorem id gravida euismod, odio nisi tincidunt leo, sit amet elementum arcu elit id lorem. Duis posuere ex vitae aliquam congue. Nam vel feugiat nisi. Nam eget purus lobortis, dapibus libero sed, volutpat lectus.</p>
-            <p align="center" class="more-content">Donec et velit nec ligula suscipit interdum. Curabitur eget pretium turpis. Etiam laoreet nisi sit amet metus ultricies, in pharetra orci ultricies. Nullam mattis vehicula tincidunt. Duis tincidunt magna at aliquet consectetur.</p>
-            <button class="read-more-btn" onclick="toggleVisibility(this)">See More</button>
-            <img src="article2.jpg" alt="Article 2">
-        </div>
-        
-        <div class="sidebar">
-            <h3>Categories</h3>
-            <ul>
-                <li><a href="#">Technology</a></li>
-                <li><a href="#">Travel</a></li>
-                <li><a href="#">Food</a></li>
-                <li><a href="#">Fashion</a></li>
-            </ul>
-        </div>
-        
-        <div style="clear: both;"></div> <!-- Clear floats -->
-        
-        <h3>About Me</h3>
-        <p>Hi, I'm [Your Name], a passionate blogger writing about various topics. Feel free to explore my blog and leave your comments!</p>
+    <!-- Timer -->
+    <div class="timer" id="timer">20</div>
+
+    <!-- Eonads ad (top) -->
+    <div class="ad">
+        <a href="https://www.eonads.com" class="ex4" target="_blank">Ads by Eonads</a>
+        <ins class="e160x600" id="160x600" data-revive-hash="89ed7ccfd195d0007cb783bb0e624e0c" data-revive-zoneid="59315" data-revive-id="f87497be83f6ed6b52c3b340d803ae0d"></ins>
+        <script async src="//network.eonads.com/adserver/www/delivery/asyncjs.php"></script>
     </div>
-    <footer>
-        <p>&copy; 2024 My Blogger Website. All rights reserved.</p>
-    </footer>
+
+    <!-- Eonads ad (bottom) -->
+    <div class="ad">
+        <a href="https://www.eonads.com" class="ex6" target="_blank">Ads by Eonads</a>
+        <ins class="e300x600" id="300x600" data-revive-hash="89ed7ccfd195d0007cb783bb0e624e0c" data-revive-zoneid="59314" data-revive-id="f87497be83f6ed6b52c3b340d803ae0d"></ins>
+        <script async src="//network.eonads.com/adserver/www/delivery/asyncjs.php"></script>
+    </div>
 
     <script>
-        function toggleVisibility(butt</style>  
-    </head>
-    
+        let timeLeft = 20;
+        const timerElement = document.getElementById('timer');
 
-    </html>
+        function updateTimer() {
+            if (timeLeft <= 0) {
+                clearInterval(timerInterval);
+                timerElement.textContent = "Time's up!";
+            } else {
+                timerElement.textContent = timeLeft;
+                timeLeft--;
+            }
+        }
+
+        const timerInterval = setInterval(updateTimer, 1000);
+    </script>
+</body>
+</html>
