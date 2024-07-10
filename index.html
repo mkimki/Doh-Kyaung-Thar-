@@ -3,61 +3,78 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>20s Timer with Ads</title>
+    <title>Loading Animation with Timer</title>
     <style>
-        body {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
+        .loader {
+            border: 16px solid rgba(81, 161, 161, 0.333);
+            border-top: 16px solid #3477db;
+            border-radius: 50%;
+            width: 120px;
+            height: 120px;
+            animation: spin 2s linear infinite;
+            margin: auto;
+            margin-top: 20%;
         }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
         .timer {
-            font-size: 48px;
-            color: #333;
-            margin-bottom: 20px;
+            font-size: 18px;
+            text-align: center;
+            margin-top: 20px;
         }
-        .ad {
-            margin: 20px 0;
+
+        .ad-container {
+            text-align: center;
+            margin-top: 20px;
         }
     </style>
 </head>
 <body>
-    <!-- Timer -->
-    <div class="timer" id="timer">20</div>
 
-    <!-- Eonads ad (top) -->
-    <div class="ad">
-        <a href="https://www.eonads.com" class="ex4" target="_blank">Ads by Eonads</a>
-        <ins class="e160x600" id="160x600" data-revive-hash="89ed7ccfd195d0007cb783bb0e624e0c" data-revive-zoneid="59315" data-revive-id="f87497be83f6ed6b52c3b340d803ae0d"></ins>
-        <script async src="//network.eonads.com/adserver/www/delivery/asyncjs.php"></script>
-    </div>
+<div class="loader" id="loader"></div>
 
-    <!-- Eonads ad (bottom) -->
-    <div class="ad">
-        <a href="https://www.eonads.com" class="ex6" target="_blank">Ads by Eonads</a>
-        <ins class="e300x600" id="300x600" data-revive-hash="89ed7ccfd195d0007cb783bb0e624e0c" data-revive-zoneid="59314" data-revive-id="f87497be83f6ed6b52c3b340d803ae0d"></ins>
-        <script async src="//network.eonads.com/adserver/www/delivery/asyncjs.php"></script>
-    </div>
+<div class="timer" id="timer">
+    <!-- Timer will appear here -->
+</div>
 
-    <script>
-        let timeLeft = 20;
-        const timerElement = document.getElementById('timer');
-
-        function updateTimer() {
-            if (timeLeft <= 0) {
-                clearInterval(timerInterval);
-                timerElement.textContent = "Time's up!";
-            } else {
-                timerElement.textContent = timeLeft;
-                timeLeft--;
-            }
-        }
-
-        const timerInterval = setInterval(updateTimer, 1000);
+<div class="ad-container">
+    <script type="text/javascript">
+        atOptions = {
+            'key' : '109c94b7a11f1d38757bb1f12841eb14',
+            'format' : 'iframe',
+            'height' : 60,
+            'width' : 468,
+            'params' : {}
+        };
     </script>
+    <script type="text/javascript" src="//www.topcreativeformat.com/109c94b7a11f1d38757bb1f12841eb14/invoke.js"></script>
+</div>
+
+<script>
+    // Set the initial time to 30 seconds
+    var timeLeft = 30;
+
+    // Update the timer every second
+    var timerInterval = setInterval(function() {
+        // Display the current time
+        document.getElementById('timer').innerHTML = 'စာဖတ်ချိန်ရေတွက်နေသည်: ' + timeLeft + ' seconds';
+
+        // Decrease time by 1 second
+        timeLeft--;
+
+        // If time runs out, display "Time's up!" and clear the interval
+        if (timeLeft < 0) {
+            clearInterval(timerInterval);
+            document.getElementById('timer').innerHTML = "အချိန်ပြည့်ပါပြီ!";
+            // Hide the loader when time's up
+            document.getElementById('loader').style.display = 'none';
+        }
+    }, 1000);
+</script>
+
 </body>
 </html>
