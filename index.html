@@ -31,6 +31,13 @@
             text-align: center;
             margin-top: 20px;
         }
+
+        .ad-blocked {
+            display: none;
+            color: red;
+            text-align: center;
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body>
@@ -54,6 +61,10 @@
     <script type="text/javascript" src="//www.topcreativeformat.com/109c94b7a11f1d38757bb1f12841eb14/invoke.js"></script>
 </div>
 
+<div class="ad-blocked" id="ad-blocked">
+    Please disable your ad blocker to support us.
+</div>
+
 <script>
     // Set the initial time to 30 seconds
     var timeLeft = 30;
@@ -74,6 +85,18 @@
             document.getElementById('loader').style.display = 'none';
         }
     }, 1000);
+
+    // Anti-Ad Blocker Detection
+    window.onload = function() {
+        var adContainer = document.querySelector('.ad-container');
+        var adBlocked = document.getElementById('ad-blocked');
+
+        setTimeout(function() {
+            if (adContainer.offsetHeight === 0 || adContainer.offsetWidth === 0) {
+                adBlocked.style.display = 'block';
+            }
+        }, 1000);
+    }
 </script>
 
 </body>
