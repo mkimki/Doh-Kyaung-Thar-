@@ -61,6 +61,10 @@
     <script type="text/javascript" src="//www.topcreativeformat.com/109c94b7a11f1d38757bb1f12841eb14/invoke.js"></script>
 </div>
 
+<!-- Additional Ad Script and Container -->
+<script async="async" data-cfasync="false" src="//pl23035690.highrevenuenetwork.com/7fbbb37db9c2d090385f5d24aa67e0a3/invoke.js"></script>
+<div id="container-7fbbb37db9c2d090385f5d24aa67e0a3" class="ad-container"></div>
+
 <div class="ad-blocked" id="ad-blocked">
     Please disable your ad blocker to support us.
 </div>
@@ -88,11 +92,15 @@
 
     // Anti-Ad Blocker Detection
     window.onload = function() {
-        var adContainer = document.querySelector('.ad-container');
+        var adContainers = document.querySelectorAll('.ad-container');
         var adBlocked = document.getElementById('ad-blocked');
 
         setTimeout(function() {
-            if (adContainer.offsetHeight === 0 || adContainer.offsetWidth === 0) {
+            var adsBlocked = Array.from(adContainers).every(function(adContainer) {
+                return adContainer.offsetHeight === 0 || adContainer.offsetWidth === 0;
+            });
+
+            if (adsBlocked) {
                 adBlocked.style.display = 'block';
             }
         }, 1000);
